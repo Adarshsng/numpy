@@ -5292,7 +5292,7 @@ class MaskedArray(ndarray):
             if cnt.shape == () and (cnt == 0):
                 result = masked
             else:
-                result = dsum * 1. / cnt
+                result = (dsum * 1. / cnt).astype(dtype)
         if out is not None:
             out.flat = result
             if isinstance(out, MaskedArray):
